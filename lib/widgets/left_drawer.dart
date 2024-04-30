@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:series_tracker/screens/menu.dart';
 import 'package:series_tracker/screens/trackerlist_form.dart';
 import 'package:series_tracker/screens/trackerlist_form.dart';
+import 'package:series_tracker/screens/list_series.dart';
 
 class LeftDrawer extends StatelessWidget {
     const LeftDrawer({super.key});
@@ -19,7 +20,7 @@ class LeftDrawer extends StatelessWidget {
                     child: Column(
                         children: [
                             Text(
-                                'Book Tracker',
+                                'Series Tracker',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                     fontSize: 30,
@@ -28,8 +29,14 @@ class LeftDrawer extends StatelessWidget {
                                 ),
                             ),
                             Padding(padding: EdgeInsets.all(10)),
-                            Text("Catat seluruh progress membaca bukumu disini!",
-                                // TODO: Tambahkan gaya teks dengan center alignment, font ukuran 15, warna putih, dan weight biasa
+                            Text(
+                              "Catat seluruh progress series yang sedang kamu tonton disini!",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.normal,
+                                  color: Colors.white
+                                )
                             ),
                         ],
                     ),
@@ -48,7 +55,7 @@ class LeftDrawer extends StatelessWidget {
                     ),
                     ListTile(
                         leading: const Icon(Icons.library_add_rounded),
-                        title: const Text('Tambah Buku'),
+                        title: const Text('Tambah Finished Series'),
                         // Bagian redirection ke TrackerFormPage
                         onTap: () {
                         Navigator.pushReplacement(
@@ -56,6 +63,16 @@ class LeftDrawer extends StatelessWidget {
                             MaterialPageRoute(
                                 builder: (context) => TrackerFormPage(),
                             ));
+                        },
+                    ),
+                    ListTile(
+                        leading: const Icon(Icons.library_books_rounded),
+                        title: const Text('Daftar Series'),
+                        onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => const SeriesPage()),
+                            );
                         },
                     ),
                 ],

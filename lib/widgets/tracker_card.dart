@@ -1,5 +1,6 @@
 import 'package:series_tracker/screens/trackerlist_form.dart';
 import 'package:flutter/material.dart';
+import 'package:series_tracker/screens/list_series.dart';
 
 class TrackerItem {
     final String name;

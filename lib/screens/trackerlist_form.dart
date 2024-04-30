@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:series_tracker/screens/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:series_tracker/widgets/left_drawer.dart';
 
@@ -19,7 +22,7 @@ class _TrackerFormPageState extends State<TrackerFormPage> {
           appBar: AppBar(
               title: const Center(
                   child: Text(
-                  'Form Tambah Buku',
+                  'Form Tambah Series',
                   ),
               ),
               backgroundColor: Colors.indigo,
