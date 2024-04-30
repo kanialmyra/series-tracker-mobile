@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:series_tracker/widgets/left_drawer.dart';
+import 'package:series_tracker/screens/trackerlist_form.dart';
+import 'package:series_tracker/widgets/tracker_card.dart';
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({super.key});
 
   final List<TrackerItem> items = [
-    TrackerItem("Lihat Item", Icons.library_books_rounded),
-    TrackerItem("Tambah Item", Icons.library_add_rounded),
-    TrackerItem("Logout", Icons.logout),
+    TrackerItem("Lihat Item", Icons.library_books_rounded, Colors.indigo.shade100),
+    TrackerItem("Tambah Item", Icons.library_add_rounded, Colors.indigo.shade200),
+    TrackerItem("Logout", Icons.logout, Colors.indigo.shade300),
 ];
 
   @override
@@ -16,7 +19,10 @@ class MyHomePage extends StatelessWidget {
                 title: const Text(
                     'Series Tracker',
                 ),
+                backgroundColor: Colors.indigo,
+                foregroundColor: Colors.white,
                 ),
+                drawer: const LeftDrawer(),
                 body: SingleChildScrollView(
                 // Widget wrapper yang dapat discroll
                 child: Padding(
@@ -58,54 +64,4 @@ class MyHomePage extends StatelessWidget {
     }
 }
 
-class TrackerItem {
-    final String name;
-    final IconData icon;
 
-    TrackerItem(this.name, this.icon);
-}
-
-class TrackerCard extends StatelessWidget {
-    final TrackerItem item;
-
-    const TrackerCard(this.item, {super.key}); // Constructor
-
-    @override
-    Widget build(BuildContext context) {
-    return Material(
-        color: Colors.indigo.shade200,
-        child: InkWell(
-        // Area responsive terhadap sentuhan
-        onTap: () {
-            // Memunculkan SnackBar ketika diklik
-            ScaffoldMessenger.of(context)
-            ..hideCurrentSnackBar()
-            ..showSnackBar(SnackBar(
-                content: Text("Kamu telah menekan tombol ${item.name}!")));
-        },
-        child: Container(
-            // Container untuk menyimpan Icon dan Text
-            padding: const EdgeInsets.all(8),
-            child: Center(
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                Icon(
-                    item.icon,
-                    color: Colors.white,
-                    size: 30.0,
-                ),
-                const Padding(padding: EdgeInsets.all(3)),
-                Text(
-                    item.name,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(color: Colors.white),
-                ),
-                ],
-            ),
-            ),
-        ),
-        ),
-    );
-    }
-}

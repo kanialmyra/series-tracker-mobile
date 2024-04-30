@@ -22,7 +22,7 @@
         - Logout (Logout)
 
     Langkah-langkah:
-        1. Menghapus kata 'const' dan 'title: ...' pada main.dart
+        1. Menghapus kata 'const' dan 'title: ...' pada menu.dart
         2. Mengubah 'StatefulWidget' menjadi 'StatelessWidget' pada menu.dart
         3. Mengubah baris bawahnya menjadi:
             MyHomePage({super.key});
