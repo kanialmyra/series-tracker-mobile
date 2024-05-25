@@ -28,10 +28,16 @@ class TrackerCard extends StatelessWidget {
             ..showSnackBar(SnackBar(
                 content: Text("Kamu telah menekan tombol ${item.name}!")));
             
-            if (item.name == "Tambah Buku") {
+            if (item.name == "Tambah Item") {
                 Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(builder: (context) => TrackerFormPage()),
+                );
+            }
+            if (item.name == "Lihat Item") {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => SeriesPage()),
                 );
             }
         },

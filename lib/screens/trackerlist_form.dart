@@ -62,6 +62,32 @@ class _TrackerFormPageState extends State<TrackerFormPage> {
                             padding: const EdgeInsets.all(8.0),
                             child: TextFormField(
                                 decoration: InputDecoration(
+                                    hintText: "Jumlah Episode",
+                                    labelText: "Jumlah Episode",
+                                    border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(5.0),
+                                    ),
+                                ),
+                                onChanged: (String? value) {
+                                    setState(() {
+                                    _amount = int.tryParse(value!) ?? 0;
+                                    });
+                                },
+                                validator: (String? value) {
+                                    if (value == null || value.isEmpty) {
+                                        return "Halaman tidak boleh kosong!";
+                                    }
+                                    if (int.tryParse(value) == null) {
+                                        return "Halaman harus berupa angka!";
+                                    }
+                                    return null;
+                                },
+                            ),
+                        ),
+                        Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: TextFormField(
+                                decoration: InputDecoration(
                                     hintText: "Deskripsi",
                                     labelText: "Deskripsi",
                                     border: OutlineInputBorder(
